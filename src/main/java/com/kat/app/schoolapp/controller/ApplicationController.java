@@ -47,6 +47,15 @@ public class ApplicationController {
 	    mav.addObject("product", product);
 	    return mav;
 	}
-	
+
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteProduct(Model model, @PathVariable("id") Long id) 
+            throws Exception 
+{
+  productService.deleteProductById(id);
+		 List<Product> listProducts = productService.listAll();
+		    model.addAttribute("listProducts", listProducts);
+		    return "index";
+	}
 	
 }

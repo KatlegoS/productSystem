@@ -29,7 +29,7 @@ public class ProductService {
         return productRepository.findById(id).get();
     }
      
-    public void delete(long id) {
+    public void deleteProductById(long id) {
     	productRepository.deleteById(id);
     }
 }
